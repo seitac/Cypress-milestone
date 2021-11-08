@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
-import sl from "../support/selectors";
 import form from "../support/form.js";
-import { formObjects } from "/Users/sachagianelli/Documents/Devgurus/Zoro/Cypress/cypress/support/Clases/forma.js"
+import { formObjects } from "../support/Clases/forma.js"
 
 const filepath = 'testimage.jpeg';
 

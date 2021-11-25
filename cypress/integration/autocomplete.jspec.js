@@ -4,7 +4,7 @@ import { autoComplete } from "../support/Clases/complete.js"
 
 
 describe("Auto complete", () =>{
-    before("Setup", () => {
+    beforeEach("Setup", () => {
         autoComplete.visitWeb();
     });
 
@@ -26,16 +26,20 @@ describe("Auto complete", () =>{
         autoComplete.getMultipleField().contains(sl.aColor).click();
         autoComplete.getMultipleField().type("g");
         autoComplete.getFirstOnList().click();
-
-    })
-    it("Check multi form", () => {
-        
         autoComplete.getMultipleFilled().should("contain.text", sl.gColor);
         autoComplete.getMultipleFilled().should("contain.text", sl.vColor);
         autoComplete.getMultipleFilled().should("contain.text", sl.aColor);
 
     })
+
     it("Delete color",()=> {
+        autoComplete.getMultipleField().type("e");
+        autoComplete.getMultipleField().contains(sl.vColor).click();
+        autoComplete.getMultipleField().type("a");
+        autoComplete.getMultipleField().contains(sl.aColor).click();
+        autoComplete.getMultipleField().type("g");
+        autoComplete.getFirstOnList().click();
+        
         sl.colorListsDelete.forEach(function (color) {
             autoComplete.getMultipleColors().contains(color).siblings(".css-xb97g8").click();    
         })

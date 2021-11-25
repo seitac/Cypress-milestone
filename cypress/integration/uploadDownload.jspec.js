@@ -3,7 +3,7 @@
 import { updnw } from "../support/Clases/uploadDownload";
 
 describe("Upload & Download", () => {
-    before("Setup", () => {
+    beforeEach("Setup", () => {
         updnw.visitWeb();        
     });
     

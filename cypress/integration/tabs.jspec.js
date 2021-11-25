@@ -3,7 +3,7 @@ import { tabClass } from "../support/Clases/tabs";
 import sl from "../support/selectors/sTabs.js";
 
 describe("Tabs Testing",()=>{
-    before("Setup",()=>{
+    beforeEach("Setup",()=>{
         tabClass.visitWeb();
 
     })
@@ -25,7 +25,8 @@ describe("Tabs Testing",()=>{
         tabClass.tabContainer().should("contain.text", sl.useCont)
     })
     it("Check first tab", () => {
-        tabClass.whatTab().should("contain.text", "What");
+        tabClass.useTab().click();
+        tabClass.whatTab().click();
         tabClass.tabContainer().should("include.text", sl.whatCont)
     })
     it("Check tabs names", () => {
@@ -34,6 +35,8 @@ describe("Tabs Testing",()=>{
         tabClass.tabs().should("contain.text", "Use");
         tabClass.tabs().should("contain.text", "More");
     })
-    
+    it('More tab', () => {
+        cy.get(id="demo-tab-more").should("not.be.clickable")
+    });
 
 })

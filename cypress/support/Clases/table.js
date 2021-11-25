@@ -26,7 +26,33 @@ export class Table{
         return cy.get(sl.lastName)
     }
 
-    
+    getEmail(){
+        return cy.get(sl.mail)
+    }
+
+    getAge(){
+        return cy.get(sl.age)
+    }
+
+    getSalary(){
+        return cy.get(sl.salary)
+    }
+
+    getDepartment(){
+        return cy.get(sl.department)
+    }
+
+    getSubmitForm(){
+        return cy.get(sl.submitForm)
+    }
+
+    getTableRow(row){
+        return cy.get(`:nth-child(${row})`)
+    }
+
+    getRowSelect(row){
+        return cy.get(sl.rowSelect).select(`${row} rows`)
+    }
 }
 
 export const tableClass = new Table();

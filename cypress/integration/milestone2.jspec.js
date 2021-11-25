@@ -2,10 +2,11 @@
 import form from "../support/form.js";
 import { formObjects } from "../support/Clases/forma.js"
 
+
 const filepath = 'testimage.jpeg';
 
 describe("Form Testing", () => {
-    before("Setup", () => {
+    beforeEach("Setup", () => {
         formObjects.visitWeb();
     });
 
@@ -32,73 +33,38 @@ describe("Form Testing", () => {
         formObjects.getCity().click().contains("Panipat").click();
         
         formObjects.getSubmit().click();
-    })
+    
 
-    it("Student Name Test", () => {
-        formObjects.getFormRow(1).should("have.text", form.name + " " + form.lastName);
-    })
-    it("Student Email Test", () => {
+    
+        formObjects.getFormRow(1).should("have.text", `${form.name} ${form.lastName}`);
         formObjects.getFormRow(2).should("have.text", form.mail);
-    })
-    it("Gender Test", () => {
         formObjects.getFormRow(3).should("have.text", form.gender);
-    })  
-    it("Number Test", () => {
         formObjects.getFormRow(4).should("have.text", form.number );
-    })  
-    it("Date of Birth Test", () => {
         formObjects.getFormRow(5).should("have.text", form.date);
-    })
-    it("Subjects Test", () => {
         formObjects.getFormRow(6).should("have.text", form.subjects);
-    })
-    it("Hobbies Test", () => {
         formObjects.getFormRow(7).should("have.text", form.hobbie);
-    })
-    it("Picture test", () => {
         formObjects.getFormRow(8).should("have.text", "testimage.jpeg");
-    })
-    it("Address Test", () => {
         formObjects.getFormRow(9).should("have.text", form.address);
-    })
-    it("State and City Test", () => {
         formObjects.getFormRow(10).should("have.text", "Haryana Panipat");
-        cy.get('body').trigger('keydown', { keyCode: 27});
+    
+    })
+    it.only("Field Validation", () => {
+        formObjects.getSubmit().click();
+        cy.get('#genterWrapper > .col-md-9 > :nth-child(1)').should("have.css", "color", "rgb(33, 37, 41)");
+        formObjects.getEmail().type("asdasd");
+        formObjects.getEmail().should("have.css", "border-color", "rgb(220, 53, 69)");
+        formObjects.getEmail().type("sdasd@");
+        formObjects.getEmail().should("have.css", "border-color", "rgb(220, 53, 69)");
+        formObjects.getLastname().should("have.css", "border-color", "rgb(220, 53, 69)");
+        formObjects.getName().should("have.css", "border-color", "rgb(220, 53, 69)");
+        formObjects.getNumber().should("have.css", "border-color", "rgb(220, 53, 69)");
+        //formObjects.getNumber().type("123456789").should("have.css", "border-color", "rgb(220, 53, 69)");
+        //formObjects.getNumber().type("12345678901").should("have.css", "border-color", "rgb(220, 53, 69)");
+        formObjects.getNumber().type("1234567890").should("have.css", "border-color", "rgb(40, 167, 69)");
+        formObjects.getRbtn().should("have.css", "border-color", "rgb(33, 37, 41)");
+        formObjects.getDate().should("have.css", "border-color", "rgb(40, 167, 69)");;
+        formObjects.getSubject().should("have.css", "border-color", "rgb(33, 37, 41)");
+        formObjects.getHobbie().should("have.css", "border-color", "rgb(33, 37, 41)");;
+        
     })
 })
-
-//Do describe("Field Validation", () => {
-
-
-
-
-
-
-
-        //cy.get(".subjects-auto-complete__value-container > div > div").should("have.text", "Commerce");
-
-
-        //cy.get('#hobbiesWrapper > .col-md-9 col-sm-12 > :nth-child(2)').click();
-        
-        // cy.get(sl.subject).type("m");
-        // cy.get(sl.subjectFillTable).contains("Maths").should("exist");
-        
-        //cy.get('id="dateOfBirthInput').click().;
-        // column.forEach(function (value) {
-        //     cy.get(".subjects-auto-complete__option")
-        //       .should('contain', value)
-        // })
-        
-        //cy.get(".subjects-auto-complete__value-container").type("m{downarrow}{downarrow}{downarrow}{enter}");
-        
-        //cy.get('.form-file-label').click();
-
-        // column2.forEach(function (value) {
-        //     cy.get(".css-11unzgr")
-        //       .should('contain', value)
-        // })
-        
-        // cy.get("#submit").click();
-        // cy.get('tbody > :nth-child(1) > :nth-child(2)').contains("Nombre Apellido").should("be.visible");
-        // cy.get('tbody > :nth-child(2) > :nth-child(2)').contains("sacha@email.com").should("be.visible");
-        //cy.get("#dateOfBirthInput").should("have.value", "22 Nov 2021");

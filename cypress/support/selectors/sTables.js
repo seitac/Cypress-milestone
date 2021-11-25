@@ -1,12 +1,22 @@
 const searchBar = "#searchBox";
 const addButton = "#addNewRecordButton";
 const modalcontent = ".modal-content";
-const firstName = "firstName";
+const firstName = "#firstName";
 const lastName = "#lastName";
 const mail = "#userEmail";
 const age = "#age";
 const salary = "#salary";
-const departament = "#department";
+const department = "#department";
+const submitForm = "#submit";
+
+const next = ".-next > .-btn";
+const previous = ".-previous > .-btn";
+
+const rowSelect = "select";
+
+
+const row10 = ":nth-child(10)";
+const row20 = ":nth-child(20)";
 
 export default{
     searchBar,
@@ -17,5 +27,14 @@ export default{
     mail,
     age,
     salary,
-    departament
+    department,
+    submitForm,
+
+    row10,
+    row20,
+
+    next,
+    previous,
+
+    rowSelect,
 }

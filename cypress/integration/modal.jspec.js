@@ -3,7 +3,7 @@ import sl from "../support/selectors/sModal.js"
 import { modalClass } from "../support/Clases/modal.js"
 
 describe("Enter Webpage", () => {
-    before("Setup", () => {
+    beforeEach("Setup", () => {
         modalClass.visitWeb()
     });
 
@@ -12,8 +12,10 @@ describe("Enter Webpage", () => {
         modalClass.getContent().should("contain", sl.contSmall);
         modalClass.getSmallBody().should("have.text", sl.bodySmall)
         modalClass.getClose().click();
+        modalClass.getContent().should("not.exist");
         modalClass.getSmallBtn().click();
         modalClass.getSmallClose().click();
+        modalClass.getContent().should("not.exist");
 
     })
 
@@ -22,8 +24,10 @@ describe("Enter Webpage", () => {
         modalClass.getContent().should("contain", sl.contLarge);
         modalClass.getSmallBody().should("contain.text", sl.bodyLarge)
         modalClass.getClose().click();
+        modalClass.getContent().should("not.exist");
         modalClass.getLargeBtn().click();
         modalClass.getLargeClose().click()
+        modalClass.getContent().should("not.exist");
     })
 
     it("Test outside click (Small)",() => {

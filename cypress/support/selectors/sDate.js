@@ -1,6 +1,3 @@
-//List
-const monthList = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-const yearList = ["1982","1999","2032","2021","2054"]
 
 //Selectors
 const selectDate = "#datePickerMonthYearInput";
@@ -15,18 +12,17 @@ const pickDay = ".react-datepicker__day--0";
 const monthPicker = ".react-datepicker__month-select";
 const yearPicker = ".react-datepicker__year-select";
 
+const yearView = ".react-datepicker__year-read-view";
+const yearDropdown = ".react-datepicker__year-dropdown";
+const yearTime = ".react-datepicker__time-list";
+
 //Values
 const day = 15;
-const nMonth = "January";
-const pMonth = "October"
 
 
 
 
 export default{
-    monthList,
-    yearList,
-
     selectDate,
     dateAndTime,
     currentMonth,
@@ -39,8 +35,9 @@ export default{
     yearPicker,
 
     day,
-    pMonth,
-    nMonth,
     
+    yearView,
+    yearDropdown,
+    yearTime,
 }
 

@@ -13,10 +13,17 @@ const next = ".-next > .-btn";
 const previous = ".-previous > .-btn";
 
 const rowSelect = "select";
+const body = ".rt-tbody";
+const bodyGroup = ".rt-tbody > .rt-tr-group";
+const group = ".rt-tr-group"
 
+const table = ".rt-table";
+const noData = ".rt-noData";
 
-const row10 = ":nth-child(10)";
-const row20 = ":nth-child(20)";
+const pageInput = ".-pageJump > input";
+
+const deleteBtn = "#delete-record-1 > svg"
+const editBtn = "#edit-record-1 > svg"
 
 export default{
     searchBar,
@@ -30,11 +37,18 @@ export default{
     department,
     submitForm,
 
-    row10,
-    row20,
-
     next,
     previous,
 
     rowSelect,
+    bodyGroup,
+    body,
+    group,
+
+    table,
+    noData,
+    pageInput,
+
+    deleteBtn,
+    editBtn,
 }

@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-import sl from "../selectors/sTables.js"
+import sl from "../selectors/sWebTables.js"
 
 export class Table{
     visitWeb(){
@@ -52,6 +52,36 @@ export class Table{
 
     getRowSelect(row){
         return cy.get(sl.rowSelect).select(`${row} rows`)
+    }
+    getBody(){
+        return cy.get(sl.body)
+    }
+    getBodyGroup(){
+        return cy.get(sl.bodyGroup)
+    }
+    getTable(){
+        return cy.get(sl.table)
+    }
+    getNoData(){
+        return cy.get(sl.noData)
+    }
+    getNext(){
+        return cy.get(sl.next)
+    }
+    getPrev(){
+        return cy.get(sl.previous)
+    }
+    getGroup(){
+        return cy.get(sl.group)
+    }
+    getPageInput(){
+        return cy.get(sl.pageInput)
+    }
+    getDelete(){
+        return cy.get(sl.deleteBtn)
+    }
+    getEdit(){
+        return cy.get(sl.editBtn)
     }
 }
 

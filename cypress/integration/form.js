@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import form from "../support/form.js";
+import form from "../fixtures/form.js";
 import { formObjects } from "../support/Clases/forma.js"
 
 
@@ -48,7 +48,7 @@ describe("Form Testing", () => {
         formObjects.getFormRow(10).should("have.text", "Haryana Panipat");
     
     })
-    it.only("Field Validation", () => {
+    it("Field Validation", () => {
         formObjects.getSubmit().click();
         cy.get('#genterWrapper > .col-md-9 > :nth-child(1)').should("have.css", "color", "rgb(33, 37, 41)");
         formObjects.getEmail().type("asdasd");
@@ -58,8 +58,6 @@ describe("Form Testing", () => {
         formObjects.getLastname().should("have.css", "border-color", "rgb(220, 53, 69)");
         formObjects.getName().should("have.css", "border-color", "rgb(220, 53, 69)");
         formObjects.getNumber().should("have.css", "border-color", "rgb(220, 53, 69)");
-        //formObjects.getNumber().type("123456789").should("have.css", "border-color", "rgb(220, 53, 69)");
-        //formObjects.getNumber().type("12345678901").should("have.css", "border-color", "rgb(220, 53, 69)");
         formObjects.getNumber().type("1234567890").should("have.css", "border-color", "rgb(40, 167, 69)");
         formObjects.getRbtn().should("have.css", "border-color", "rgb(33, 37, 41)");
         formObjects.getDate().should("have.css", "border-color", "rgb(40, 167, 69)");;

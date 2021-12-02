@@ -24,6 +24,9 @@ export class TabClass {
     tabs(){
         return cy.get(sl.tabNav)
     }
+    demoTab(){
+        return cy.get(sl.tabDemo)
+    }
 }
 
 export const tabClass = new TabClass();

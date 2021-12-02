@@ -28,6 +28,9 @@ export class AutoComplete{
     getList(){
         return cy.get(sl.multipleObjectList)
     }
+    getIndicator(){
+        return cy.get(sl.autoIndicator)
+    }
 
 }
 export const autoComplete = new AutoComplete();

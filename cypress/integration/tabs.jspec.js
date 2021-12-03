@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 import { tabClass } from "../support/Clases/tabs";
-import sl from "../support/selectors/sTabs.js";
+import data from "../fixtures/data.js";
 
 describe("Tabs Testing",()=>{
-    before("Setup",()=>{
+    beforeEach("Setup",()=>{
         tabClass.visitWeb();
 
     })
@@ -17,16 +17,26 @@ describe("Tabs Testing",()=>{
 
     it("Check 2nd tab", () => {
         tabClass.originTab().click();
-        tabClass.tabContainer().should("contain.text", sl.origCont)
+        tabClass.tabContainer().should("contain.text", data.origCont)
+        tabClass.whatTab().should("not.have.class", "active");
+        tabClass.originTab().should("have.class", "active");
+        tabClass.useTab().should("not.have.class", "active");
     })
 
     it("Check 3rd tab",() => {
         tabClass.useTab().click();
-        tabClass.tabContainer().should("contain.text", sl.useCont)
+        tabClass.tabContainer().should("contain.text", data.useCont);
+        tabClass.whatTab().should("not.have.class", "active");
+        tabClass.originTab().should("not.have.class", "active");
+        tabClass.useTab().should("have.class", "active");
     })
     it("Check first tab", () => {
-        tabClass.whatTab().should("contain.text", "What");
-        tabClass.tabContainer().should("include.text", sl.whatCont)
+        tabClass.useTab().click();
+        tabClass.whatTab().click();
+        tabClass.tabContainer().should("include.text", data.whatCont);
+        tabClass.whatTab().should("have.class", "active");
+        tabClass.originTab().should("not.have.class", "active");
+        tabClass.useTab().should("not.have.class", "active");
     })
     it("Check tabs names", () => {
         tabClass.tabs().should("contain.text", "What");
@@ -34,6 +44,8 @@ describe("Tabs Testing",()=>{
         tabClass.tabs().should("contain.text", "Use");
         tabClass.tabs().should("contain.text", "More");
     })
-    
+    it('More tab', () => {
+        tabClass.demoTab().should("have.class", "disabled");
+    });
 
 })

@@ -1,29 +1,33 @@
 /// <reference types="cypress" />
-import sl from "../support/selectors/sModal.js"
 import { modalClass } from "../support/Clases/modal.js"
+import data from "../fixtures/data.js"
 
 describe("Enter Webpage", () => {
-    before("Setup", () => {
+    beforeEach("Setup", () => {
         modalClass.visitWeb()
     });
 
     it("Test Small Button", () => {
         modalClass.getSmallBtn().click();
-        modalClass.getContent().should("contain", sl.contSmall);
-        modalClass.getSmallBody().should("have.text", sl.bodySmall)
+        modalClass.getContent().should("contain", data.contSmall);
+        modalClass.getSmallBody().should("have.text", data.bodySmall)
         modalClass.getClose().click();
+        modalClass.getContent().should("not.exist");
         modalClass.getSmallBtn().click();
         modalClass.getSmallClose().click();
+        modalClass.getContent().should("not.exist");
 
     })
 
     it("Test Large Button", () => {
         modalClass.getLargeBtn().click();
-        modalClass.getContent().should("contain", sl.contLarge);
-        modalClass.getSmallBody().should("contain.text", sl.bodyLarge)
+        modalClass.getContent().should("contain", data.contLarge);
+        modalClass.getSmallBody().should("contain.text", data.bodyLarge)
         modalClass.getClose().click();
+        modalClass.getContent().should("not.exist");
         modalClass.getLargeBtn().click();
         modalClass.getLargeClose().click()
+        modalClass.getContent().should("not.exist");
     })
 
     it("Test outside click (Small)",() => {

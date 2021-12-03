@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-import sl from "../selectors/sUpDwn.js"
+import sl from "../selectors/sUploadDownload.js"
 
 
 export class UpDnw{
